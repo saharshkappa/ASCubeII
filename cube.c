@@ -10,8 +10,8 @@
     #include <time.h>    // Required for clock() timing
 #endif
 
-#define WIDTH 45
-#define HEIGHT 25
+#define WIDTH 60
+#define HEIGHT 30
 #define PI 3.141592
 char Screen[WIDTH][HEIGHT];
 float Zindex[WIDTH][HEIGHT];
@@ -141,6 +141,7 @@ int main(void){
 // Update and draw game frame
 static void UpdateDrawFrame(void){
     static int axis=0;
+    static float angle=0.0;
     static float angleXYZ[3] = {0.0,0.0,0.0};
     static float rotation=0.0;
     float super[3][3]={{1.0,0.0,0.0},
@@ -170,9 +171,15 @@ static void UpdateDrawFrame(void){
 
     //axis change
     angleXYZ[axis]+=0.01;
-    if(angleXYZ[axis]>=(PI/4)){
+    angle+=0.01;
+    if(angle>=(PI/4)){
+        angle=0;
         axis=(axis+1)%3;
     }
+    if(angleXYZ[axis]>=(2*PI)){
+        angleXYZ[axis]=0;
+    }
+
 }
 
 void raturize(Vector3 A,Vector3 B,Vector3 C){
