@@ -1,4 +1,4 @@
-A simple project built with [raylib](https://www.raylib.com/). This program renders a 3D cube using basic points and lines (wireframe style) and rotates it continuously in space. 
+This program renders a 3D cube using basic ascii charcters and rotates it continuously in space. 
 
 ## Features
 * **3D Rendering:** Draws a 3D cube from ascii charaters, in the terminal.
