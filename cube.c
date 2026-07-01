@@ -20,7 +20,7 @@ float Zindex[WIDTH][HEIGHT];
 float theta=0.01;  //rotation angle (smoothness)
 const float f=100; //focalLength
 float a=2.0;        //length of the cube
-
+float yscalefactor=0.5; // account for the terminal stretching vertically
 typedef struct{
  int indices[3];
 }Triangle;
@@ -302,6 +302,6 @@ Vector2 project(Vector3 point,Vector3 camera){
     if ((camera.z-point.z)<0.001f) {
         return (Vector2){ NAN, NAN };
     }
-    Vector2 proj=(Vector2 ){(WIDTH/2.0)+((point.x-camera.x)*f/(camera.z-point.z)), (HEIGHT/2.0)+((point.y-camera.y)*f/(camera.z-point.z))};
+    Vector2 proj=(Vector2 ){(WIDTH/2.0)+((point.x-camera.x)*f/(camera.z-point.z)), (HEIGHT/2.0)+yscalefactor*((point.y-camera.y)*f/(camera.z-point.z))};
     return proj;
 }

@@ -1,5 +1,6 @@
 This program renders a 3D cube using basic ascii charcters and rotates it continuously in space. 
 
+![Output](./media/output.gif)
 ## Features
 * **3D Rendering:** Draws a 3D cube from ascii charaters, in the terminal.
 * **Customisable:**All Parameters(variables) are customisble. although not intended you can also change the vertices matrix to a set of points, and update the faces matrix (cubeT) to hold the face vetices in anti clockwise order to render any shape. *NOTE: the size of both of these are hardcoded to be 8 and 12 (not only at their declaration but also all the loops (Find and Replace all should fix it))*
