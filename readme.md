@@ -20,11 +20,19 @@ cd [ASCubeII]
 ### 2. To Compile 
 Run
 ```
-gcc cube.c -lm
+gcc cube.c -lm -o a.out
+```
+For windows
+```
+gcc cube.c -lm -o a.exe
 ```
 
 ### 3. To Run 
 Run
 ```
 ./a.out
+```
+For windows
+```
+./a.exe
 ```
