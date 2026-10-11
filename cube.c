@@ -2,12 +2,12 @@
 #include <math.h>
 #include <string.h>
 #include <float.h>
+#include <time.h> 
 
 #ifdef _WIN32
-    #include <windows.h> // Required for Sleep() on Windows
+    #include <windows.h> // Sleep() on Windows
 #else
-    #include <unistd.h>  // Required for usleep() on Linux/Mac
-    #include <time.h>    // Required for clock() timing
+    #include <unistd.h>  // usleep() on Linux/Mac or Unix     
 #endif
 
 #define WIDTH 60
@@ -17,10 +17,10 @@ char Screen[WIDTH][HEIGHT];
 float Zindex[WIDTH][HEIGHT];
 
 
-float theta=0.01;  //rotation angle (smoothness)
-const float f=100; //focalLength
-float a=2.0;        //length of the cube
-float yscalefactor=0.5; // account for the terminal stretching vertically
+float theta=0.01;  //Rotation angle (smoothness)
+const float f=100; //FocalLength
+float a=2.0;        //Scale of the cube
+float yscalefactor=0.5; // Account for the terminal stretching vertically
 typedef struct{
  int indices[3];
 }Triangle;
@@ -101,9 +101,9 @@ char Color(float L){
 
 void delay_ms(int milliseconds) {
     #ifdef _WIN32
-        Sleep(milliseconds); // Windows takes milliseconds directly
+        Sleep(milliseconds); 
     #else
-        usleep(milliseconds * 1000); // Linux/Mac takes microseconds (multiply by 1000)
+        usleep(milliseconds * 1000); // unix takes microseconds 
     #endif
 }
 
@@ -116,7 +116,7 @@ int main(void){
     Light.z=Light.z/modLight;
     
     const int TARGET_FPS = 30;
-    const double MS_PER_FRAME = 1000.0 / TARGET_FPS; // 16.666 milliseconds
+    const double MS_PER_FRAME = 1000.0 / TARGET_FPS; // 16.6667 (67 haha) milliseconds
     
     
     while (1){
